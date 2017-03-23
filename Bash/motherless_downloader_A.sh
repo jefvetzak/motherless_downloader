@@ -19,20 +19,14 @@ wget --quiet --output-document=index.html $1
 url=$(grep __fileurl index.html | cut -d "'" -f2)
 
 #Now The Title
-title=$(grep "<title>" index.html | cut -d ">" -f2 | cut -d "<" -f1)
-#Now we got somethinh like: title - motherless.COM
-#ncount for - m... =17
-TotalLength=$(echo ${#title})
-TitleLength=$(expr $TotalLength -17)
-title=$(echo ${$title:0:$TitleLength})
+Title=$(grep "<title>" index.html | cut -d ">" -f2 | cut -d "<" -f1)
 
 
-#Let's now get rid of them ugly whitespaces & replace them with underscores
-Title=${title// /_} 
+
 #move one folder up 
 cd ..
 #Now the actual Download
-wget --output-document="$Title_$D.mp4" $url 
+wget --output-document="'$Title''$D'.mp4" $url 
 #getting the files a nice place in the void
 rm -f -d -r  tempMsDown
 #Try to keep it gender neutral
