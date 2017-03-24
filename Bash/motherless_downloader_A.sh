@@ -11,7 +11,7 @@ cd $PATH
 mkdir  tempMsDown
 cd tempMsDown
 #Download the index.html file
-wget --quiet --output-document=index.html '$1'
+wget --quiet --output-document=index.html "'$1'"
 
 #Now we must extract the title & source-url of the video
 
@@ -26,7 +26,7 @@ Title=$(grep "<title>" index.html | cut -d ">" -f2 | cut -d "<" -f1)
 #move one folder up 
 cd ..
 #Now the actual Download
-wget --output-document="'$Title''$D'.mp4" $url 
+wget --output-document="$Title$D.mp4" $url 
 #getting the files a nice place in the void
 rm -f -d -r  tempMsDown
 #Try to keep it gender neutral
