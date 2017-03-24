@@ -11,7 +11,7 @@ cd $PATH
 mkdir  tempMsDown
 cd tempMsDown
 #Download the index.html file
-wget --quiet --output-document=index.html $1
+wget --quiet --output-document=index.html '$1'
 
 #Now we must extract the title & source-url of the video
 
